@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Despegar</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -13,16 +14,22 @@
     </header>
     <main>
         <H2>Bienvenidos</H2>
-        <img src = "./assets/images/img-portada.jpg"/>
+        <img class="imagenes" src = "./assets/images/img-portada.jpg"/>
         <h2>Recomendados</h2>
         <section id = "viajes">
 
         </section>
 
 
-        <h2>Destinos</h2>
-        <section id = "destinos"></section>
-
+        <form id = "form-destinos">
+        <label for="destino"><h2>Destinos</h2></label>
+        <select id="destino" required>
+            <option value="malaga">Málaga</option>
+            <option value="sevilla">Sevilla</option>
+            <option value="granada">Granada</option>
+            </select>
+        <button type="submit">Elegir destino</button>    
+        </form>
     </main>    
     
 
