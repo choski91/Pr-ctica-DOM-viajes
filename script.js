@@ -24,7 +24,7 @@ function viajesDespegar() {
   viajes.forEach((viaje) => {
     const article = document.createElement("article");
     article.innerHTML = `
-      <h3><b>${viaje.title}</b></h3>
+      <h3>${viaje.title}</h3>
       <p>${viaje.description}</p>
       <img src= "${viaje.url_img}"/>
      `;
@@ -38,16 +38,16 @@ viajesDespegar();
 document.getElementById("form-destinos").addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const destinoElegido = event.target.elements.destino.value.trim();//esto es lo que selecciona el usuario en el form
+  const destinoElegido = event.target.elements.destino.value.trim();// es lo q selecciona usuario en el form
 
   const seccionViajes = document.getElementById("viajes");//selecciona por id mi seleccion viajes y lo guardo
-  seccionViajes.innerHTML = ""; // Limpio la sección que habia seleccionado
+  seccionViajes.innerHTML = ""; //limpio la sección que habia seleccionado
 
   const articuloFinal = document.createElement("article");//creo un articulo html
   if (destinoElegido == "malaga") { //si el usuario selecciono malaga
     //relleno el art con los datos de abajo que corresp con malaga
     articuloFinal.innerHTML = `  
-      <h3><b>${viajes[0].title}</b></h3>
+      <h3>${viajes[0].title}</h3>
       <p>${viajes[0].description}</p>
       <img src= "${viajes[0].url_img}"/>
      `;
@@ -57,19 +57,23 @@ document.getElementById("form-destinos").addEventListener("submit", (event) => {
   else if (destinoElegido == "sevilla") {
 
     articuloFinal.innerHTML = `
-      <h3><b>${viajes[1].title}</b></h3>
+      <h3>${viajes[1].title}</h3>
       <p>${viajes[1].description}</p>
       <img src= "${viajes[1].url_img}"/>
      `;
     seccionViajes.appendChild(articuloFinal);
   }
-  else {
-    articuloFinal.innerHTML = `
+  else if (destinoElegido == "granada") {
+     articuloFinal.innerHTML = `
       <h3><b>${viajes[2].title}</b></h3>
       <p>${viajes[2].description}</p>
       <img src= "${viajes[2].url_img}"/>
      `;
     seccionViajes.appendChild(articuloFinal);
-  };
+  }
+
+  else {
+    viajesDespegar();
+  }
 });
 
